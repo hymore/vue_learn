@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="school.name" />
+      <div>{{school.age}}</div>
+      {{school.name}}
+      <ul>
+        <li v-on:click="change">1</li>
+        <li>{{address}}</li>
+        <li>3</li>
+        <li>4</li>
+      </ul>
+      {{getName}}
+    </div>
+    <script src="./mvvm.js"></script>
+    <script>
+      let vm = new Vue({
+        el: "#app",
+        data: {
+          school: {
+            name: "zs",
+            age: 18
+          },
+          address: "shenzhen"
+        },
+        computed: {
+          getName() {
+            return "姓名：" + this.school.name;
+          }
+        },
+        methods: {
+          change() {
+            this.school.name = "changed";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
