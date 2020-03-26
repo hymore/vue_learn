@@ -7,19 +7,19 @@
   </head>
   <body>
     <div id="app">
-      <input type="text" v-model="school.name" />
+      <input type="text" v-model="message" />
       <div>{{school.age}}</div>
       {{school.name}}
       <ul>
         <li v-on:click="change">1</li>
         <li>{{address}}</li>
-        <li>3</li>
-        <li>4</li>
+        <li>{{message}}</li>
+        <li v-html="html">4</li>
       </ul>
       {{getName}}
     </div>
-    <script src="./mvvm.js"></script>
-    <script>
+    <script type="module">
+      import Vue from "./mvvm.js";
       let vm = new Vue({
         el: "#app",
         data: {
@@ -27,7 +27,9 @@
             name: "zs",
             age: 18
           },
-          address: "shenzhen"
+          html: "<h1>我是html</h1>",
+          address: "shenzhen",
+          message: "hello"
         },
         computed: {
           getName() {
